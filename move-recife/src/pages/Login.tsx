@@ -1,9 +1,59 @@
 export default function Login() {
   return (
-    <div className="min-h-screen flex flex-col bg-base-200">
-      <main className="flex-1 flex flex-col items-center justify-center px-6 py-8">
-        <h1 className="text-xl font-bold mb-4">Login</h1>
-        {/* Coloque aqui seu form de login */}
+    <div className="min-h-screen bg-white flex  flex-col transform scale-115">
+      <main className="flex-1 flex flex-col items-center justify-start h-full">
+        <div className="w-50 h-50 mb-10 mr-30  flex  justify-start items-start ">
+          <img src="/logo.png" alt="Logo Move Recife" className=" object-contain w-70 h-70  " />
+        </div>
+        <div className=" w-max h-50 mb-15 ">
+
+          <h1 className="text-xl font-bold text-black mb-4">Entre com a sua conta</h1>
+          <fieldset className="fieldset w-70">
+          <legend className="fieldset-legend text-black">Email</legend>
+          <label className="input validator input-neutral bg-white">
+            <input type="email" className="  text-black placeholder-gray-400" placeholder="Escreva seu email" required />
+          </label>
+          <div className="validator-hint hidden">Entre com um email valido</div>
+           </fieldset>
+          <fieldset className="fieldset w-70"> 
+          <legend className="fieldset-legend text-black">Senha</legend>
+          <label className="input validator bg-white input-neutral">
+            <input
+              type="password"
+              required
+              placeholder="Escreva sua senha"
+              className="placeholder-gray-400 text-black"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+            />
+          </label>
+          <p className="text-gray-400 ">Esqueceu sua senha? <span className="text-[#15265A] font-semibold underline cursor-pointer"> Clique aqui! </span></p>
+          <p className="validator-hint hidden">
+            A senha deve ter no minimo 8 caracteres, incluindo:
+            <br />Pelo menos 1 numero <br />Pelo menos uma letra minuscula <br />Pelo menos uma letra maiuscula
+          </p>
+          </fieldset>
+        </div>
+        <div className="w-75 flex items-center justify-center ">
+          <p className="text-gray-800 text-sm underline ">Não tem uma conta? <span className="text-[#15265A] font-semibold cursor-pointer"> Crie já </span></p>
+        </div>
+          <div className="w-70 flex flex-col gap-2 items-center justify-center ">
+              <button className="btn btn-lg  bg-[#15265A] text-white mt-10">Entrar</button>
+              <div className="divider w-70 divider-vertical text-gray-500 divider-neutral">OU</div>
+              <button className="btn bg-white text-black border-[#e5e5e5]">
+                <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
+                Login com Google
+              </button>
+              <button className="btn bg-[#1A77F2] text-white border-[#005fd8]">
+                <svg aria-label="Facebook logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="white" d="M8 12h5V8c0-6 4-7 11-6v5c-4 0-5 0-5 3v2h5l-1 6h-4v12h-6V18H8z"></path></svg>
+                Login com Facebook
+              </button>
+              <button className="btn bg-black text-white border-black">
+                <svg aria-label="Apple logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1195 1195"><path fill="white" d="M1006.933 812.8c-32 153.6-115.2 211.2-147.2 249.6-32 25.6-121.6 25.6-153.6 6.4-38.4-25.6-134.4-25.6-166.4 0-44.8 32-115.2 19.2-128 12.8-256-179.2-352-716.8 12.8-774.4 64-12.8 134.4 32 134.4 32 51.2 25.6 70.4 12.8 115.2-6.4 96-44.8 243.2-44.8 313.6 76.8-147.2 96-153.6 294.4 19.2 403.2zM802.133 64c12.8 70.4-64 224-204.8 230.4-12.8-38.4 32-217.6 204.8-230.4z"></path></svg>
+                Login com Apple
+              </button>
+          </div>
+        
       </main>
     </div>
   );
