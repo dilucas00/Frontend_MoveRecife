@@ -8,6 +8,8 @@ export default function Home() {
       <div className="space-x-4">
         <a href="/login" className="btn btn-neutral">Login</a>
         <a href="/register" className="btn btn-secondary">Register</a>
+        <a href="/homepager" className="btn btn-info">Home PAge</a>
+
       </div>
     </div>
   );

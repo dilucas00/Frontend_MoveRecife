@@ -2,22 +2,22 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-white flex  flex-col transform scale-115">
       <main className="flex-1 flex flex-col items-center justify-start h-full">
-        <div className="w-50 h-50 mb-10 mr-30  flex  justify-start items-start ">
-          <img src="/logo.png" alt="Logo Move Recife" className=" object-contain w-70 h-70  " />
+        <div className="w-92  h-50 mb-10  mt-30 flex justify-start items-start ">
+          <img src="/logo-fundo.png" alt="Logo Move Recife" className=" object-contain w-80 h-80  " />
         </div>
         <div className=" w-max h-50 mb-15 ">
-
-          <h1 className="text-xl font-bold text-black mb-4">Entre com a sua conta</h1>
+ 
+          <h1 className="text-xl  font-medium  text-black mb-4">Entre com a sua conta</h1>
           <fieldset className="fieldset w-70">
           <legend className="fieldset-legend text-black">Email</legend>
-          <label className="input validator input-neutral bg-white">
-            <input type="email" className="  text-black placeholder-gray-400" placeholder="Escreva seu email" required />
+          <label className="input validator input-neutral bg-white rounded-2xl ">
+            <input type="email" className=" text-black placeholder-gray-400" placeholder="Escreva seu email" required />
           </label>
           <div className="validator-hint hidden">Entre com um email valido</div>
            </fieldset>
-          <fieldset className="fieldset w-70"> 
-          <legend className="fieldset-legend text-black">Senha</legend>
-          <label className="input validator bg-white input-neutral">
+          <fieldset className="fieldset w-70">
+          <legend className="fieldset-legend  text-black">Senha</legend>
+          <label className="input validator bg-white input-neutral rounded-2xl ">
             <input
               type="password"
               required
@@ -53,7 +53,7 @@ export default function Login() {
                 Login com Apple
               </button>
           </div>
-        
+       
       </main>
     </div>
   );
