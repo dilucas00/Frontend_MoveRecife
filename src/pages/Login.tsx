@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,9 +21,22 @@ export default function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await res.json();
+      // debug logs para desenvolvimento
+      console.debug("/auth/login response status:", res.status);
+      console.debug("/auth/login response content-type:", res.headers.get("content-type"));
+
+      const contentType = (res.headers.get("content-type") || "").toLowerCase();
+      let data: any = null;
+      if (contentType.includes("application/json")) {
+        data = await res.json();
+      } else {
+        // Fallback: pode vir HTML (ex: página de erro), converta para text para diagnóstico
+        const text = await res.text();
+        data = { message: text };
+      }
       if (!res.ok) {
-        setError(data?.message || "Erro ao efetuar login");
+        const errMsg = data?.message || "Erro ao efetuar login";
+        setError(typeof errMsg === "string" ? errMsg : JSON.stringify(errMsg));
         setLoading(false);
         return;
       }
@@ -33,9 +48,10 @@ export default function Login() {
       }
       setSuccess("Login realizado com sucesso.");
       setLoading(false);
-      // redireciona para página inicial
-      window.location.href = "/";
+      // redireciona para homepage SPA
+      navigate("/homepage");
     } catch (err: any) {
+      console.error("Login fetch error:", err);
       setError(err?.message || "Erro de conexão");
       setLoading(false);
     }
@@ -111,7 +127,7 @@ export default function Login() {
           </fieldset>
         </div>
         <div className="w-75 flex items-center justify-center ">
-          <p className="text-gray-800 text-sm underline ">Não tem uma conta? <a href="/register" className="text-[#15265A] font-semibold cursor-pointer"> Crie já </a></p>
+          <p className="text-gray-800 text-sm underline ">Não tem uma conta? <span className="text-[#15265A] font-semibold cursor-pointer" onClick={() => navigate('/register')}> Crie já </span></p>
         </div>
           <div className="w-70 flex flex-col gap-2 items-center justify-center ">
               {error && <div className="text-red-600 mb-2">{error}</div>}
