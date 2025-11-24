@@ -60,7 +60,7 @@ export default function HomePage() {
         </div>
       </a>
       <div className= "flex sticky justify-center bg-[#F0F0F0] w-screen h-screen rounded-t-4xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] -my-24  mx-auto"> 
-        <div className="carousel rounded-box w-auto h-auto mt-30 ml-11">
+        <div className="carousel rounded-box w-auto h-auto mt-30 flex justify-center alighn-center ml-20">
 
             <div className="carousel-item w-full">
             <div className="card bg-base-100 w-85 h-100 shadow-sm">
