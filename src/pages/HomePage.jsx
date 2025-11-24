@@ -33,9 +33,10 @@ export default function HomePage() {
 </div>
 
 {/* div dos blocos brancos */}
-      <div className= "flex  bg-white hover-3d w-[325px] h-[125px] rounded-4xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] z-10 mt-10 mx-auto">
+      <a href="https://monitoramento-ambiental-inteligente-b6646506.base44.app/?is_new_user=true" target="_blank" rel="noopener noreferrer" className="block z-10">
+        <div className= "flex bg-white hover-3d w-[325px] h-[125px] rounded-4xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] z-10 mt-10 mx-auto cursor-pointer">
 
-        <div className="flex flex-row items-center w-[325px] align-center justify-evenly ">
+          <div className="flex flex-row items-center w-[325px] align-center justify-evenly ">
           <div className="flex flex-col items-center justify-center p-4">
             <p className="mb-1 font-medium">Temperatura</p>
             <div className="flex flex-row gap-1 items-center">
@@ -54,9 +55,10 @@ export default function HomePage() {
 
          
 
-        </div>
+          </div>
 
-      </div>
+        </div>
+      </a>
       <div className= "flex sticky justify-center bg-[#F0F0F0] w-screen h-screen rounded-t-4xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] -my-24  mx-auto"> 
         <div className="carousel rounded-box w-auto h-auto mt-30 ml-11">
 
