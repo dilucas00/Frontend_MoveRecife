@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import HomePage from './pages/HomePage';
 import Map from './components/Map';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -13,7 +14,6 @@ function App() {
         <Route path="/" element={<Login />} />          
         <Route path="/register" element={<Register />} />
         <Route path = "/homepage" element = {<HomePage/>} />
-        <Route path = "/map" element = {<Map/>} />
       </Routes>
     </BrowserRouter>
   );
