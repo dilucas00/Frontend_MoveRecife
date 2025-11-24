@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,9 +21,22 @@ export default function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await res.json();
+      // debug logs para desenvolvimento
+      console.debug("/auth/login response status:", res.status);
+      console.debug("/auth/login response content-type:", res.headers.get("content-type"));
+
+      const contentType = (res.headers.get("content-type") || "").toLowerCase();
+      let data: any = null;
+      if (contentType.includes("application/json")) {
+        data = await res.json();
+      } else {
+        // Fallback: pode vir HTML (ex: página de erro), converta para text para diagnóstico
+        const text = await res.text();
+        data = { message: text };
+      }
       if (!res.ok) {
-        setError(data?.message || "Erro ao efetuar login");
+        const errMsg = data?.message || "Erro ao efetuar login";
+        setError(typeof errMsg === "string" ? errMsg : JSON.stringify(errMsg));
         setLoading(false);
         return;
       }
@@ -33,9 +48,10 @@ export default function Login() {
       }
       setSuccess("Login realizado com sucesso.");
       setLoading(false);
-      // redireciona para página inicial
-      window.location.href = "/";
+      // redireciona para homepage SPA
+      navigate("/homepage");
     } catch (err: any) {
+      console.error("Login fetch error:", err);
       setError(err?.message || "Erro de conexão");
       setLoading(false);
     }
@@ -71,15 +87,15 @@ export default function Login() {
   }
 
   return (
-    <div className="h-screen bg-white flex  flex-col transform scale-115">
-      <main className="flex-1 flex flex-col items-center justify-center h-full">
-        <div className="w-92  h-50 mb-10  mt-30 flex justify-start items-start ">
-          <img src="/logo.png" alt="Logo Move Recife" className=" object-contain w-80 h-80  " />
+    <div className="h-screen  bg-white flex flex-col ">
+      <main className=" flex flex-col items-center justify-center ">
+        <div className="  h-50 mb-10  mt-30 flex   ">
+          <img src="/logo.png" alt="Logo Move Recife" className="  w-80 h-80  " />
         </div>
-        <div className=" w-max h-50 mb-15 ">
+        <div className="  h-50 mb-15 ">
 
           <h1 className="text-xl  font-medium  text-black mb-4">Entre com a sua conta</h1>
-          <fieldset className="fieldset w-70">
+          <fieldset className="fieldset w-70 mb-4">
           <legend className="fieldset-legend text-black">Email</legend>
           <label className="input validator input-neutral bg-white rounded-2xl ">
             <input
@@ -107,15 +123,11 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          <p className="text-gray-400 ">Esqueceu sua senha? <span className="text-[#15265A] font-semibold underline cursor-pointer"> Clique aqui! </span></p>
-          <p className="validator-hint hidden">
-            A senha deve ter no minimo 8 caracteres, incluindo:
-            <br />Pelo menos 1 numero <br />Pelo menos uma letra minuscula <br />Pelo menos uma letra maiuscula
-          </p>
+          <p className="text-gray-400 ">Esqueceu sua senha? <span className="text-[#15265A] font-semibold underline cursor-pointer"> Clique aqui! </span></p>         
           </fieldset>
         </div>
         <div className="w-75 flex items-center justify-center ">
-          <p className="text-gray-800 text-sm underline ">Não tem uma conta? <a href="/register" className="text-[#15265A] font-semibold cursor-pointer"> Crie já </a></p>
+          <p className="text-gray-800 text-sm underline ">Não tem uma conta? <span className="text-[#15265A] font-semibold cursor-pointer" onClick={() => navigate('/register')}> Crie já </span></p>
         </div>
           <div className="w-70 flex flex-col gap-2 items-center justify-center ">
               {error && <div className="text-red-600 mb-2">{error}</div>}
