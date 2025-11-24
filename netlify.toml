@@ -1,0 +1,7 @@
+# netlify.toml
+# Este arquivo vai para a raiz do seu projeto (não dentro de public)
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
