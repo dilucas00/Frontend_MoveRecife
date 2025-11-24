@@ -71,15 +71,15 @@ export default function Login() {
   }
 
   return (
-    <div className="h-screen bg-white flex  flex-col transform scale-115">
-      <main className="flex-1 flex flex-col items-center justify-center h-full">
-        <div className="w-92  h-50 mb-10  mt-30 flex justify-start items-start ">
-          <img src="/logo.png" alt="Logo Move Recife" className=" object-contain w-80 h-80  " />
+    <div className="h-screen  bg-white flex flex-col ">
+      <main className=" flex flex-col items-center justify-center ">
+        <div className="  h-50 mb-10  mt-30 flex   ">
+          <img src="/logo.png" alt="Logo Move Recife" className="  w-80 h-80  " />
         </div>
-        <div className=" w-max h-50 mb-15 ">
+        <div className="  h-50 mb-15 ">
 
           <h1 className="text-xl  font-medium  text-black mb-4">Entre com a sua conta</h1>
-          <fieldset className="fieldset w-70">
+          <fieldset className="fieldset w-70 mb-4">
           <legend className="fieldset-legend text-black">Email</legend>
           <label className="input validator input-neutral bg-white rounded-2xl ">
             <input
@@ -107,11 +107,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          <p className="text-gray-400 ">Esqueceu sua senha? <span className="text-[#15265A] font-semibold underline cursor-pointer"> Clique aqui! </span></p>
-          <p className="validator-hint hidden">
-            A senha deve ter no minimo 8 caracteres, incluindo:
-            <br />Pelo menos 1 numero <br />Pelo menos uma letra minuscula <br />Pelo menos uma letra maiuscula
-          </p>
+          <p className="text-gray-400 ">Esqueceu sua senha? <span className="text-[#15265A] font-semibold underline cursor-pointer"> Clique aqui! </span></p>         
           </fieldset>
         </div>
         <div className="w-75 flex items-center justify-center ">
