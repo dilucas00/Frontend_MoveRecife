@@ -1,8 +1,10 @@
+import NavBar from "../components/Navbar";
+
 export default function HomePage() {
   return (
 
 // div principal
-    <div className="min-h-screen flex flex-1 flex-col w-full bg-white bg-[linear-gradient(135deg,rgba(128,196,229,0.49)_0%,rgba(128,196,229,1)_22%)]">
+    <div className="max-h-screen flex flex-1 flex-col w-full bg-[linear-gradient(135deg,rgba(128,196,229,0.49)_0%,rgba(128,196,229,1)_22%)]">
 {/* Div do cabeçalho */}
       <div className="flex justify-evenly  items-center px-6">
         <h1 className="text-[#FFF] gap-10 font-bold text-2xl ">Oi,<br /> Arnott!</h1>
@@ -13,12 +15,12 @@ export default function HomePage() {
       </div>
 {/* div input */}
 <div className="flex justify-center ">
-      <label class="input h-11  rounded-3xl  shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
-        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <label className="input h-11  rounded-3xl  shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
+        <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <g
-            stroke-linejoin="round"
-            stroke-linecap="round"
-            stroke-width="2.5"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            strokeWidth="2.5"
             fill="none"
             stroke="currentColor"
           >
@@ -26,7 +28,7 @@ export default function HomePage() {
             <path d="m21 21-4.3-4.3"></path>
           </g>
         </svg>
-        <input type="search" class="grow" placeholder="Para onde vamos?" />
+        <input type="search" className="grow" placeholder="Para onde vamos?" />
       </label>
 </div>
 
@@ -55,9 +57,64 @@ export default function HomePage() {
         </div>
 
       </div>
-      <div className= "flex sticky justify-center bg-[#F0F0F0] w-113 h-150 rounded-t-4xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] -my-24  mx-auto"> 
-      </div>
+      <div className= "flex sticky justify-center bg-[#F0F0F0] w-screen h-screen rounded-t-4xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] -my-24  mx-auto"> 
+        <div className="carousel rounded-box w-auto h-auto mt-30 ml-11">
 
+            <div className="carousel-item w-full">
+            <div className="card bg-base-100 w-85 h-100 shadow-sm">
+                    <figure>
+                      <img
+                        src="./carrosel/Marcozero.png"
+                        alt="Shoes"
+                        className="h-50"/>
+                    </figure>
+                    <div className="card-body h-1">
+                      <h2 className="card-title font-bold">
+                        Marco Zero
+                        <div className="badge bg-[#80C4E5] badge-outlined"><span className="text-white font-medium">Recife antigo</span></div>
+                      </h2>
+                      <p className="">O Marco Zero é o ponto inicial das medições das distâncias rodoviárias de Pernambuco e um dos principais símbolos históricos e turísticos da cidade. </p>
+                    </div>
+                  </div>
+            </div>
+            <div className="carousel-item w-full h-auto">
+              <div className="card bg-base-100 w-85 h-100 shadow-sm">
+                    <figure>
+                      <img
+                        src="./carrosel/PraiaBV.jpg"
+                        alt="Shoes"
+                        className="h-50 w-full"/>
+                    </figure>
+                    <div className="card-body h-1">
+                      <h2 className="card-title font-bold">
+                        Praia Boa viagem
+                        <div className="badge bg-[#80C4E5] badge-outlined"><span className="text-white font-medium">Boa viagem</span></div>
+                      </h2>
+                      <p className="">A Praia de Boa Viagem é a mais famosa do Recife, conhecida por suas águas claras, recifes que formam piscinas naturais e por ser um dos principais cartões-postais da cidade. </p>
+                    </div>
+                  </div>
+            </div>
+            <div className="carousel-item w-full h-auto">
+              <div className="card bg-base-100 w-85 h-100 shadow-sm">
+                    <figure>
+                      <img
+                        src="./carrosel/riomar.jpg"
+                        alt="Shoes"
+                        className="h-50"/>
+                        
+                    </figure>
+                    <div className="card-body h-1">
+                      <h2 className="card-title font-bold">
+                        Rio Mar
+                        <div className="badge bg-[#80C4E5] badge-outlined"><span className="text-white font-medium">Bairro do Pina</span></div>
+                      </h2>
+                      <p className="">O Shopping RioMar Recife é um dos maiores centros comerciais da cidade, oferecendo ampla variedade de lojas, gastronomia e lazer, com vista privilegiada para o Rio Capibaribe.</p>
+                    </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+      <NavBar />
     </div>
   );
 }
