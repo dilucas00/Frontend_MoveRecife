@@ -1,7 +1,18 @@
 # netlify.toml
-# Este arquivo vai para a raiz do seu projeto (não dentro de public)
 
+# Configuração de Build (Garante que o Netlify use os comandos corretos)
+[build]
+  command = "npm run build"
+  publish = "dist" # A pasta de saída padrão do Vite
+
+# Seção de Redirecionamentos
 [[redirects]]
-  from = "/*"
+  # Para qualquer rota (caminho)
+  from = "/*" 
+  
+  # Redirecionar/Servir o arquivo index.html
   to = "/index.html"
+  
+  # Status 200 (OK): Essencial para que o browser mantenha a URL original 
+  # (ex: /homepage) e o React Router possa assumir o controle.
   status = 200
