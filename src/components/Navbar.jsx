@@ -15,7 +15,7 @@ export default function NavBar() {
         <span className="dock-label text-sm">Mapa</span>
       </Link>
 
-      <Link to="/perfil" className={location.pathname === '/perfil' ? 'dock-active' : ''}>
+      <Link to="/profile" className={location.pathname === '/profile' ? 'dock-active' : ''}>
         <UserRound />
         <span className="dock-label text-sm">Perfil</span>
       </Link>
